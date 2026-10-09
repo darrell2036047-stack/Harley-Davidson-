@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#d71920">
+  <meta name="description" content="Explore the latest Harley-Davidson motorcycles, compare models, and book your test ride.">
+  <title>Harley-Davidson Dealer — Find Your Freedom</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  <script defer src="./script.js"></script>
+</head>
+<body>
+  <div class="page-progress" id="pageProgress"></div>
+  <header class="site-header" id="top">
+    <a class="brand" href="#top" aria-label="Harley-Davidson Dealer home">
+      <span class="brand-mark">H-D</span><span class="brand-name">HARLEY-DAVIDSON<small>AUTHORIZED DEALER EXPERIENCE</small></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button>
+    <nav class="main-nav" id="mainNav">
+      <a href="#motorcycles">Motorcycles</a><a href="#experience">Our Experience</a><a href="#compare">Compare</a><a href="#contact">Contact</a>
+      <a class="nav-cta" href="#test-ride">Book a Test Ride <span>↗</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-photo"></div><div class="hero-shade"></div>
+      <div class="hero-content reveal">
+        <p class="eyebrow"><span></span> THE 2026 COLLECTION</p>
+        <h1>OWN THE<br><em>OPEN ROAD.</em></h1>
+        <p class="hero-copy">Built for the ones who choose their own direction. Discover a new generation of Harley-Davidson motorcycles.</p>
+        <div class="hero-actions"><a class="button button-red" href="#motorcycles">Explore motorcycles <span>↗</span></a><a class="text-link" href="#experience">The H-D experience <span>→</span></a></div>
+        <div class="hero-meta"><div><strong>2026</strong><span>MODEL YEAR</span></div><i></i><div><strong>One road.</strong><span>YOUR OWN RULES.</span></div></div>
+      </div>
+      <div class="hero-side-note">MILWAUKEE, WISCONSIN · EST. 1903</div>
+      <a class="scroll-cue" href="#motorcycles"><span></span> SCROLL TO EXPLORE</a>
+    </section>
+
+    <section class="intro section-wrap reveal" id="experience">
+      <div class="section-kicker">01 / THE H-D SPIRIT</div>
+      <div class="intro-content"><h2>Not just a motorcycle.<br><span>A way of life.</span></h2><p>Iconic design, unmistakable character, and the freedom to make every mile your own. Find the machine that matches your next chapter.</p></div>
+      <div class="intro-stamp">FREEDOM<br>IS A JOURNEY<span>✳</span></div>
+    </section>
+
+    <section class="inventory section-wrap" id="motorcycles">
+      <div class="section-heading reveal"><div><div class="section-kicker">02 / FIND YOUR RIDE</div><h2>Meet the <span>lineup.</span></h2></div><p>From stripped-back cruisers to long-distance touring and adventure-ready performance.</p></div>
+      <div class="inventory-tools reveal">
+        <label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Search motorcycles..." aria-label="Search motorcycles"></label>
+        <div class="filter-group" id="filterGroup" aria-label="Filter motorcycles">
+          <button class="filter-chip active" data-filter="All">All models</button><button class="filter-chip" data-filter="Cruiser">Cruiser</button><button class="filter-chip" data-filter="Touring">Touring</button><button class="filter-chip" data-filter="Sport">Sport</button><button class="filter-chip" data-filter="Adventure">Adventure</button>
+        </div>
+        <label class="currency-select"><span>PRICE IN</span><select id="currencySelect"><option value="both">USD + IDR est.</option><option value="usd">USD</option><option value="idr">IDR estimate</option></select></label>
+      </div>
+      <div class="motorcycle-grid" id="motorcycleGrid" aria-live="polite"></div>
+      <p class="pricing-note">US starting MSRPs shown where published. IDR figures are rough currency conversions for comparison only—not official Indonesian retail prices. Taxes, freight, dealer fees, options, and local availability may vary. Confirm local pricing with an authorized dealer.</p>
+    </section>
+
+    <section class="feature-band">
+      <div class="feature-image"></div><div class="feature-overlay"></div>
+      <div class="feature-content reveal"><div class="section-kicker">03 / MADE TO MOVE YOU</div><h2>Every road<br>has a <em>story.</em></h2><p>Take the long way. Find the unfamiliar. Make the ride yours.</p><a href="#test-ride" class="button button-white">Experience the ride <span>↗</span></a></div>
+      <div class="feature-caption">YOUR NEXT CHAPTER STARTS HERE.</div>
+    </section>
+
+    <section class="compare-section section-wrap" id="compare">
+      <div class="section-heading reveal"><div><div class="section-kicker">04 / MAKE THE RIGHT CHOICE</div><h2>Side by <span>side.</span></h2></div><p>Choose two models to compare their category and starting price.</p></div>
+      <div class="compare-panel reveal">
+        <div class="compare-picker"><label for="compareOne">Model one</label><select id="compareOne"></select></div>
+        <div class="compare-symbol">VS</div>
+        <div class="compare-picker"><label for="compareTwo">Model two</label><select id="compareTwo"></select></div>
+        <div class="compare-results" id="compareResults"></div>
+      </div>
+    </section>
+
+    <section class="test-ride-section" id="test-ride">
+      <div class="test-ride-image"></div><div class="test-ride-content reveal">
+        <div class="section-kicker">05 / FEEL THE DIFFERENCE</div><h2>Your road.<br><em>Your ride.</em></h2><p>Get in touch to ask about availability or arrange a test ride with your local dealer.</p>
+        <form id="testRideForm">
+          <div class="form-row"><label>Full name<input required name="name" placeholder="Your name"></label><label>Email address<input required type="email" name="email" placeholder="you@example.com"></label></div>
+          <div class="form-row"><label>Interested model<select id="testRideModel" name="model" required></select></label><label>Preferred market<select name="market"><option>United States</option><option>Indonesia</option><option>United Kingdom</option><option>Australia</option><option>Other / not sure</option></select></label></div>
+          <label class="consent"><input required type="checkbox"> I agree to be contacted about my inquiry.</label>
+          <button class="button button-red" type="submit">Prepare test ride inquiry <span>↗</span></button>
+          <p class="form-hint">This demo opens an email draft on your device. It does not submit data to a server.</p>
+        </form>
+      </div>
+    </section>
+
+    <section class="contact-section section-wrap" id="contact">
+      <div class="contact-main reveal"><div class="section-kicker">06 / LET'S TALK RIDES</div><h2>The next mile<br>starts with <span>a hello.</span></h2><p>For current inventory, local pricing, and test ride availability, connect with an authorized Harley-Davidson dealer in your region.</p><div class="contact-actions"><a class="button button-red" id="whatsappLink" href="https://wa.me/" target="_blank" rel="noopener">Chat on WhatsApp <span>↗</span></a><a class="text-link" href="https://www.harley-davidson.com/" target="_blank" rel="noopener">Official Harley-Davidson site ↗</a></div></div>
+      <div class="contact-card reveal"><div class="contact-icon">H-D</div><h3>Harley-Davidson Dealer</h3><p>Global showroom experience</p><div class="contact-line"><span>INVENTORY</span><strong>By local availability</strong></div><div class="contact-line"><span>LOCATION</span><strong>Find your nearest dealer</strong></div><a href="https://www.harley-davidson.com/us/en/tools/dealer-locator.html" target="_blank" rel="noopener" class="dealer-link">Find a dealer <span>↗</span></a></div>
+    </section>
+  </main>
+  <footer class="site-footer"><a class="brand footer-brand" href="#top"><span class="brand-mark">H-D</span><span class="brand-name">HARLEY-DAVIDSON<small>FIND YOUR FREEDOM</small></span></a><p>Independent demo concept. Not an official Harley-Davidson website or affiliated dealership.</p><a href="#top" class="back-top">BACK TO TOP ↑</a></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
